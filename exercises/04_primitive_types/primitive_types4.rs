@@ -10,6 +10,8 @@ mod tests {
 
         // TODO: Get a slice called `nice_slice` out of the array `a` so that the test passes.
         // let nice_slice = ???
+        let my_slice = &a[1..5];
+        let nice_slice = &my_slice[0..3];
 
         assert_eq!([2, 3, 4], nice_slice);
     }
