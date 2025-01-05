@@ -6,7 +6,14 @@ struct Point {
 
 #[derive(Debug)]
 enum Message {
-    // TODO: Define the different variants used below.
+    Resize {
+        width: u32,
+        height: u32
+    },
+    Move(Point),
+    Echo(String),
+    ChangeColor(u8,u8,u8),
+    Quit
 }
 
 impl Message {
@@ -26,6 +33,11 @@ fn main() {
         Message::ChangeColor(200, 255, 255),
         Message::Quit,
     ];
+
+    // & because of implicit .into_iter()
+    for message in &messages {
+        message.call();
+    }
 
     for message in &messages {
         message.call();
